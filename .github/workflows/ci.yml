@@ -50,7 +50,8 @@ jobs:
       - name: Lint frontend
         run: pnpm --filter frontend lint
 
-docker-build:
+  
+  docker-build:
     name: Docker Build Verification
     runs-on: ubuntu-latest
     needs: quality-checks
