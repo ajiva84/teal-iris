@@ -5,14 +5,28 @@ Thank you for taking the extra step.
 
 ## These are the guidelines to follow  when you want to create an issue.
 
-## Getting Started
+##  Objective
+A brief summary of what needs to be accomplished and why it's a priority.
 
---**GOAL:**
--Describe the overall goal of the issue.
+##  Requirements / To-Do List
+- [ ] Item 1
+- [ ] Item 2
+- [ ] Item 3
 
+##  Acceptance Criteria
+*How will we know this is finished and successful?*
+- [ ] Feature X works as expected.
+- [ ] Code is covered by unit tests.
+- [ ] Documentation has been updated.
 
---**Tasks:**
--Mention all the tasks that you have to accomplish.
+##  Resources & Context
+- **Related Issues/PRs:** #
+- **Design Mockups:** [Link here]
+- **Technical Docs:** [Link here]
 
---**Acceptance criteria:**(if necessary)
-You have to provide the steps to show that the tasks above have been meant.
+##  Deadline / Priority
+- **Priority:** Low / Medium / High / Blocker
+- **Target Date:** YYYY-MM-DD
+
+##  Notes for the Assignee (optional)
+Any specific implementation details, edge cases to watch out for, or "gotchas" the assignee should know.
