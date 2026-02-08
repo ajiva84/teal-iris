@@ -2,16 +2,32 @@ import * as React from "react";
 
 type Props = {
   label: string;
+  id: string;
   type?: string;
   placeholder?: string;
   error?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export function TextField({ label, type = "text", placeholder, error, className = "", ...props }: Props) {
+export function TextField({
+  label,
+  id,
+  type = "text",
+  placeholder,
+  error,
+  className = "",
+  ...props
+}: Props) {
   return (
     <div className="space-y-1">
-      <label className="text-sm font-medium text-slate-200">{label}</label>
+      <label
+        htmlFor={id}
+        className="text-sm font-medium text-slate-200 cursor-pointer"
+      >
+        {label}
+      </label>
+
       <input
+        id={id}
         type={type}
         placeholder={placeholder}
         className={[
@@ -22,6 +38,7 @@ export function TextField({ label, type = "text", placeholder, error, className 
         ].join(" ")}
         {...props}
       />
+
       {error ? <p className="text-sm text-red-400">{error}</p> : null}
     </div>
   );

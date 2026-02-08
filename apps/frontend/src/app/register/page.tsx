@@ -5,9 +5,10 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { LANGUAGES } from "../src/lib/languages";
-import { TextField } from "../src/components/forms/TextField";
-import { SelectField } from "../src/components/forms/SelectField";
+import { LANGUAGES } from "@/lib/languages";
+import { TextField } from "@/components/forms/TextField";
+import { SelectField } from "@/components/forms/SelectField";
+
 
 const registerSchema = z
   .object({
@@ -68,12 +69,14 @@ export default function RegisterPage() {
             <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-4 md:grid-cols-2">
                 <TextField
+                  id="firstName"
                   label="First Name"
                   placeholder="Azam"
                   error={errors.firstName?.message}
                   {...register("firstName")}
                 />
                 <TextField
+                  id="lastName"
                   label="Last Name"
                   placeholder="Jiva"
                   error={errors.lastName?.message}
@@ -82,6 +85,7 @@ export default function RegisterPage() {
               </div>
 
               <TextField
+                id="email"
                 label="Email"
                 type="email"
                 placeholder="you@email.com"
@@ -90,6 +94,7 @@ export default function RegisterPage() {
               />
 
               <TextField
+                id="password"
                 label="Password"
                 type="password"
                 placeholder="********"
@@ -99,12 +104,14 @@ export default function RegisterPage() {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <SelectField
+                  id="nativeLanguage"
                   label="Native Language"
                   options={LANGUAGES}
                   error={errors.nativeLanguage?.message}
                   {...register("nativeLanguage")}
                 />
                 <SelectField
+                  id="targetLanguage"
                   label="Target Language"
                   options={LANGUAGES}
                   error={errors.targetLanguage?.message}
