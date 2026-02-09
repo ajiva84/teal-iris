@@ -3,6 +3,7 @@
 // -------------------------------
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
+import { ConfigModule } from "@nestjs/config"; // loads .env
 import { HealthController } from "./modules/health/health.controller.js";
 import { AuthModule } from "./modules/auth/auth.module.js";
 import { DbModule } from "./db/db.module.js";
