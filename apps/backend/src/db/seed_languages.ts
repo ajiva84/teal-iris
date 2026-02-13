@@ -7,8 +7,7 @@ import { languages } from "./schema.js";
 
 const pool = new Pool({
   connectionString:
-    process.env.DATABASE_URL ||
-    "postgres://user:password@localhost:5432/teal_iris",
+    process.env.DATABASE_URL,
 });
 const db = drizzle(pool, { schema });
 
