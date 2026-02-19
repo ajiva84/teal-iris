@@ -37,10 +37,10 @@ export function overlappingSlots(
     for (const b of bIntervals) {
       const inter = a.intersection(b);
       if (inter && inter.isValid && inter.length("seconds") > 0) {
-        const startUTC = inter.start.toUTC().toISO();
-        const endUTC = inter.end.toUTC().toISO();
-        const startLocal = inter.start.setZone(viewerZone).toISO();
-        const endLocal = inter.end.setZone(viewerZone).toISO();
+        const startUTC = inter.start.toUTC().toISO() ?? "";
+        const endUTC = inter.end.toUTC().toISO() ?? "";
+        const startLocal = inter.start.setZone(viewerZone).toISO() ?? "";
+        const endLocal = inter.end.setZone(viewerZone).toISO() ?? "";
         overlaps.push({ startUTC, endUTC, startLocal, endLocal, viewerZone });
       }
     }
