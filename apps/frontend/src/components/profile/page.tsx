@@ -6,7 +6,6 @@ import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "sonner";
 import { api } from "../../lib/api";
 import { useUserStore } from "../../store/useUserStore";
 
@@ -53,14 +52,14 @@ export default function ProfilePage() {
       return res.data;
     },
     onSuccess: () => {
-      toast.success("Profile updated successfully!");
+      alert("Profile updated successfully!");
     },
     onError: (error: unknown) => {
       let message = "Update failed";
       if (error instanceof Error) {
         message = error.message;
       }
-      toast.error(message);
+      alert(message);
     },
   });
 
