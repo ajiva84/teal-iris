@@ -1,8 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect,Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuthStore } from "../../../store/useAuthStore";
+
+
+function LoadingSpinner() {
+  return (
+    <main className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-10 h-10 rounded-full border-4 border-slate-700 border-t-teal-400 animate-spin" />
+        <p className="text-sm text-slate-300 tracking-wide">
+          Finalizing secure login...
+        </p>
+      </div>
+    </main>
+  );
+}
 
 
 function decodeToken(token: string) {
@@ -15,7 +29,7 @@ function decodeToken(token: string) {
   }
 }
 
-export default function AuthCallbackPage() {
+export  function AuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { setAuth } = useAuthStore();
@@ -43,14 +57,14 @@ export default function AuthCallbackPage() {
   }, [searchParams, router, setAuth]);
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
-      <div className="flex flex-col items-center gap-4">
-        {/* Loading spinner */}
-        <div className="w-10 h-10 rounded-full border-4 border-slate-700 border-t-teal-400 animate-spin" />
-        <p className="text-sm text-slate-300 tracking-wide">
-          Finalizing secure login...
-        </p>
-      </div>
-    </main>
+   <LoadingSpinner/>
+  );
+}
+
+export default function AuthCallbackPage() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <AuthCallbackContent />
+    </Suspense>
   );
 }
