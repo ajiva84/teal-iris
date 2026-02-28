@@ -8,6 +8,13 @@
       "when": 1772086420411,
       "tag": "0000_handy_metal_master",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1771858452677,
+      "tag": "0005_right_white_queen",
+      "breakpoints": true
     }
   ]
 }
